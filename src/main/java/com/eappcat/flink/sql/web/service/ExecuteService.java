@@ -178,6 +178,7 @@ public class ExecuteService {
                 .noDefaultValue()
                 .withDescription("Attached notebookId");
         Configuration configuration=new Configuration();
+        configuration.setString("pipeline.name","test");
         configuration.setString(JobManagerOptions.ADDRESS, configProperties.getHost());
         configuration.setInteger(JobManagerOptions.PORT, configProperties.getJobManagerPort());
         configuration.setInteger(RestOptions.PORT, configProperties.getRestPort());
