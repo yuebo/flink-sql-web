@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.7.93:3306/flink?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&rewriteBatchedStatements=true
+  kafka:
+    bootstrap-servers: 192.168.7.202:9092
+    consumer:
+      group-id: flink-web-console
+      auto-offset-reset: latest
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8222
+
+
+flink:
+  rest-port: 8081
+  job-manager-port: 6123
+  host: 192.168.7.123
+  url: http://${flink.host}:${flink.rest-port}
+  callback-url: http://192.168.8.29:8222
+  submit-job-location: D:/projects/flink-sql-submit-job/target/flink-sql-submit-job-1.0-SNAPSHOT.jar
